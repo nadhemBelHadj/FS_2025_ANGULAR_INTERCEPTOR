@@ -34,46 +34,46 @@ return this.http.get<Produit[]>(this.apiURL+"/all");
   }
 
   ajouterProduit( prod: Produit):Observable<Produit>{
-    let jwt = this.authService.getToken();
+/*     let jwt = this.authService.getToken();
     jwt = "Bearer "+jwt;
-    let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
-      return this.http.post<Produit>(this.apiURL+"/addprod", prod, {headers:httpHeaders});
+    let httpHeaders = new HttpHeaders({"Authorization":jwt})  */
+      return this.http.post<Produit>(this.apiURL+"/addprod", prod);
     }
    
     
  
 supprimerProduit(id : number) {
      const url = `${this.apiURL}/delprod/${id}`;
-      let jwt = this.authService.getToken();
+      /* let jwt = this.authService.getToken();
       jwt = "Bearer "+jwt;
-      let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
-        return this.http.delete(url,  {headers:httpHeaders});
+      let httpHeaders = new HttpHeaders({"Authorization":jwt})  */
+        return this.http.delete(url );
       }
     
  consulterProduit(id: number): Observable<Produit> {
         const url = `${this.apiURL}/getbyid/${id}`;
-        console.log(url);
+      /*   console.log(url);
         let jwt = this.authService.getToken();
         jwt = "Bearer "+jwt;
-        let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
-          return this.http.get<Produit>(url,{headers:httpHeaders});
+        let httpHeaders = new HttpHeaders({"Authorization":jwt})  */
+          return this.http.get<Produit>(url);
         }
 
   updateProduit(prod :Produit) : Observable<Produit>    {
-      console.log(prod.categorie);
+      /* console.log(prod.categorie);
         let jwt = this.authService.getToken();
         jwt = "Bearer "+jwt;
-        let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
-          return this.http.put<Produit>(this.apiURL+"/updateprod", prod, {headers:httpHeaders});
+        let httpHeaders = new HttpHeaders({"Authorization":jwt})  */
+          return this.http.put<Produit>(this.apiURL+"/updateprod", prod);
         }
 
 
        
      listeCategories():Observable<CategorieWrapper>{
-      let jwt = this.authService.getToken();
+     /*  let jwt = this.authService.getToken();
       jwt = "Bearer "+jwt;
-      let httpHeaders = new HttpHeaders({"Authorization":jwt})
-      return  this.http.get<CategorieWrapper>(this.apiURLCat,{headers:httpHeaders});
+      let httpHeaders = new HttpHeaders({"Authorization":jwt}) */
+      return  this.http.get<CategorieWrapper>(this.apiURLCat);
       
           }     
 
